@@ -24,9 +24,11 @@ class UserInputTest {
 
     @Test
     @DisplayName("입력받은 문자열 길이가 3인지 확인")
-    void inBoundLength() {
-        Assertions.assertThat(userInput.inBoundLength("15871381248")).isEqualTo(false);
-        Assertions.assertThat(userInput.inBoundLength("122")).isEqualTo(true);
+    void checkLength() {
+        Assertions.assertThat(userInput.checkLength("15871381248")).isEqualTo(false);
+        Assertions.assertThat(userInput.checkLength("1")).isEqualTo(false);
+        Assertions.assertThat(userInput.checkLength("122")).isEqualTo(true);
+
     }
 
     @Test

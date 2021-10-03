@@ -22,7 +22,7 @@ public class UserInput {
         if (isNotEmpty(inputStr) == false)
             return false;
 
-        if (inBoundLength(inputStr) == false)
+        if (checkLength(inputStr) == false)
             return false;
 
         if (isNumber(inputStr) == false)
@@ -38,8 +38,8 @@ public class UserInput {
         return true;
     }
 
-    public boolean inBoundLength(String inputStr) {
-        if (inputStr.length() > inputLen)
+    public boolean checkLength(String inputStr) {
+        if (inputStr.length() != inputLen)
             return false;
 
         return true;
