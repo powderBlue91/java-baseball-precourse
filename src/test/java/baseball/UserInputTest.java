@@ -17,22 +17,22 @@ class UserInputTest {
 
     @Test
     @DisplayName("입력받은 문자열이 빈 문자열이 아닌지 확인")
-    void isEmpty() {
-        Assertions.assertThat(userInput.isEmpty("")).isEqualTo(true);
-        Assertions.assertThat(userInput.isEmpty("test")).isEqualTo(false);
+    void isNotEmpty() {
+        Assertions.assertThat(userInput.isNotEmpty("")).isEqualTo(false);
+        Assertions.assertThat(userInput.isNotEmpty("test")).isEqualTo(true);
     }
 
     @Test
-    @DisplayName("입력받은 문자열 길이가 3을 넘는지 확인")
-    void isOutOfLen() {
-        Assertions.assertThat(userInput.isOutOfLen("abc1234")).isEqualTo(true);
-        Assertions.assertThat(userInput.isOutOfLen("122")).isEqualTo(false);
+    @DisplayName("입력받은 문자열 길이가 3인지 확인")
+    void inBoundLength() {
+        Assertions.assertThat(userInput.inBoundLength("15871381248")).isEqualTo(false);
+        Assertions.assertThat(userInput.inBoundLength("122")).isEqualTo(true);
     }
 
     @Test
     @DisplayName("입력받은 문자열이 숫자인지 확인")
-    void isNotNumber() {
-        Assertions.assertThat(userInput.isNotNumber("brzsvfvz")).isEqualTo(true);
-        Assertions.assertThat(userInput.isNotNumber("1232132")).isEqualTo(false);
+    void isNumber() {
+        Assertions.assertThat(userInput.isNumber("brzsvfvz")).isEqualTo(false);
+        Assertions.assertThat(userInput.isNumber("1232132")).isEqualTo(true);
     }
 }

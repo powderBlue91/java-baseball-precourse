@@ -12,44 +12,45 @@ public class UserInput {
     public String execute() {
         String inputStr = Console.readLine();
 
-        if (validateStr(inputStr))
+        if (validateStr(inputStr) == false)
             return "[ERROR]";
 
         return inputStr;
     }
 
     public boolean validateStr(String inputStr) {
-        if (isEmpty(inputStr))
-            return true;
+        if (isNotEmpty(inputStr) == false)
+            return false;
 
-        if (isOutOfLen(inputStr))
-            return true;
+        if (inBoundLength(inputStr) == false)
+            return false;
 
-        if (isNotNumber(inputStr))
-            return true;
+        if (isNumber(inputStr) == false)
+            return false;
 
-        return false;
+        return true;
     }
-    public boolean isEmpty(String inputStr) {
+
+    public boolean isNotEmpty(String inputStr) {
         if (inputStr.isEmpty())
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 
-    public boolean isOutOfLen(String inputStr) {
+    public boolean inBoundLength(String inputStr) {
         if (inputStr.length() > inputLen)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 
-    public boolean isNotNumber(String inputStr) {
-        for ( int i = 0; i < inputStr.length(); ++i ){
-            if (Character.isDigit(inputStr.charAt(i)) == false )
-                return true;
+    public boolean isNumber(String inputStr) {
+        for ( int i = 0; i < inputStr.length(); ++i ) {
+            if (Character.isDigit(inputStr.charAt(i)) == false)
+                return false;
         }
 
-        return false;
+        return true;
     }
 }
