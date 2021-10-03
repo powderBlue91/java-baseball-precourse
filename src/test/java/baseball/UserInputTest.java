@@ -37,4 +37,11 @@ class UserInputTest {
         Assertions.assertThat(userInput.isNumber("brzsvfvz")).isEqualTo(false);
         Assertions.assertThat(userInput.isNumber("1232132")).isEqualTo(true);
     }
+
+    @Test
+    @DisplayName("문자열 요소들이 서로 다른지 확인")
+    void isDifferNumber() {
+        Assertions.assertThat(userInput.isDifferNumber("111")).isEqualTo(false);
+        Assertions.assertThat(userInput.isDifferNumber("567")).isEqualTo(true);
+    }
 }

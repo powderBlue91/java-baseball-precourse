@@ -28,6 +28,9 @@ public class UserInput {
         if (isNumber(inputStr) == false)
             return false;
 
+        if (isDifferNumber(inputStr) == false)
+            return false;
+
         return true;
     }
 
@@ -50,6 +53,15 @@ public class UserInput {
             if (Character.isDigit(inputStr.charAt(i)) == false)
                 return false;
         }
+
+        return true;
+    }
+
+    public boolean isDifferNumber(String inputStr) {
+        if ( inputStr.charAt(0) == inputStr.charAt(1) ||
+                inputStr.charAt(1) == inputStr.charAt(2) ||
+                inputStr.charAt(2) == inputStr.charAt(0))
+            return false;
 
         return true;
     }
