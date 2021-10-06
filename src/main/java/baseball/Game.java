@@ -53,8 +53,9 @@ public class Game {
     public boolean endGame() {
         while ( true ) {
             String inputStr = Console.readLine();
-            if ( !(inputStr.equals("1") || inputStr.equals("2")) )
+            if (!(inputStr.equals("1") || inputStr.equals("2"))) {
                 continue;
+            }
 
             if (inputStr.equals("2")) {
                 MessageUtil.endGameMessage();

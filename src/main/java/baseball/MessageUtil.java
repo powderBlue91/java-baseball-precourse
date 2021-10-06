@@ -3,11 +3,21 @@ package baseball;
 public class MessageUtil {
 
     public static void judgeMessage(JudgeState state) {
-        if (state == JudgeState.STRIKE) strikeMessage();
-        if (state == JudgeState.NOTHING) nothingMessage();
-        if (state == JudgeState.ALL_STRIKE) allStrikeMessage();
-        if (state == JudgeState.ALL_BALL) allBallMessage();
-        if (state == JudgeState.NORMAL) normalMessage();
+        if (state == JudgeState.STRIKE) {
+            strikeMessage();
+        }
+        if (state == JudgeState.NOTHING) {
+            nothingMessage();
+        }
+        if (state == JudgeState.ALL_STRIKE) {
+            allStrikeMessage();
+        }
+        if (state == JudgeState.ALL_BALL) {
+            allBallMessage();
+        }
+        if (state == JudgeState.NORMAL) {
+            normalMessage();
+        }
     }
 
     public static void strikeMessage() {

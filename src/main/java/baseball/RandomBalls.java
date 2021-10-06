@@ -16,8 +16,9 @@ public class RandomBalls {
         while( true ) {
             randomBalls = generateBall();
 
-            if (validate(randomBalls))
+            if (validate(randomBalls)) {
                 break;
+            }
         }
 
         return randomBalls;
@@ -26,7 +27,7 @@ public class RandomBalls {
     public String generateBall() {
         String tmpStr = "";
 
-        for ( int i = 0; i < ballLength; ++i) {
+        for (int i = 0; i < ballLength; ++i) {
             tmpStr += Integer.toString(Randoms.pickNumberInRange(1,9));
         }
 
@@ -34,24 +35,27 @@ public class RandomBalls {
     }
 
     public boolean validate(String randomStr) {
-        if (isNotEmpty(randomStr) == false)
+        if (isNotEmpty(randomStr) == false) {
             return false;
+        }
 
-        if (isDifferBallNum(randomStr) == false)
+        if (isDifferBallNum(randomStr) == false) {
             return false;
+        }
 
         return true;
     }
 
     public boolean isNotEmpty(String randomStr) {
-        if (randomStr.isEmpty())
+        if (randomStr.isEmpty()) {
             return false;
+        }
 
         return true;
     }
 
     public boolean isDifferBallNum(String randomStr) {
-        if ( randomStr.charAt(0) == randomStr.charAt(1) ||
+        if (randomStr.charAt(0) == randomStr.charAt(1) ||
                 randomStr.charAt(1) == randomStr.charAt(2) ||
                 randomStr.charAt(2) == randomStr.charAt(0))
             return false;

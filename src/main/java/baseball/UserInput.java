@@ -12,8 +12,9 @@ public class UserInput {
     public String execute() {
         String userBalls = Console.readLine();
 
-        if (validate(userBalls) == false)
+        if (validate(userBalls) == false) {
             throw new IllegalArgumentException();
+        }
 
         return userBalls;
     }
@@ -30,31 +31,35 @@ public class UserInput {
     }
 
     public boolean isNotEmpty(String userBalls) {
-        if (userBalls.isEmpty())
+        if (userBalls.isEmpty()) {
             return false;
+        }
 
         return true;
     }
 
     public boolean checkLength(String userBalls) {
-        if (userBalls.length() != ballLength)
+        if (userBalls.length() != ballLength) {
             return false;
+        }
 
         return true;
     }
 
     public boolean isNumber(String userBalls) {
         for ( int i = 0; i < userBalls.length(); ++i ) {
-            if (Character.isDigit(userBalls.charAt(i)) == false)
+            if (Character.isDigit(userBalls.charAt(i)) == false) {
                 return false;
+            }
         }
 
         return true;
     }
 
     public boolean isNotZero(String userBalls) {
-        if (userBalls.contains("0") == true)
+        if (userBalls.contains("0") == true) {
             return false;
+        }
         return true;
     }
 
