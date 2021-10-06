@@ -13,64 +13,55 @@ public class UserInput {
         String userBalls = Console.readLine();
 
         if (validate(userBalls) == false)
-            return "[ERROR]";
+            throw new IllegalArgumentException();
 
         return userBalls;
     }
 
     public boolean validate(String userBalls) {
-        if (isNotEmpty(userBalls) == false)
-            return false;
-
-        if (checkLength(userBalls) == false)
-            return false;
-
-        if (isNumber(userBalls) == false)
-            return false;
-
-        if (isNotZero(userBalls) == false)
-            return false;
-
-        if (isDifferNumber(userBalls) == false)
-            return false;
-
-
-        return true;
-    }
-
-    public boolean isNotEmpty(String inputStr) {
-        if (inputStr.isEmpty())
+        if (isNotEmpty(userBalls) == false ||
+                checkLength(userBalls) == false ||
+                isNumber(userBalls) == false ||
+                isNotZero(userBalls) == false ||
+                isDifferNumber(userBalls) == false)
             return false;
 
         return true;
     }
 
-    public boolean checkLength(String inputStr) {
-        if (inputStr.length() != ballLength)
+    public boolean isNotEmpty(String userBalls) {
+        if (userBalls.isEmpty())
             return false;
 
         return true;
     }
 
-    public boolean isNumber(String inputStr) {
-        for ( int i = 0; i < inputStr.length(); ++i ) {
-            if (Character.isDigit(inputStr.charAt(i)) == false)
+    public boolean checkLength(String userBalls) {
+        if (userBalls.length() != ballLength)
+            return false;
+
+        return true;
+    }
+
+    public boolean isNumber(String userBalls) {
+        for ( int i = 0; i < userBalls.length(); ++i ) {
+            if (Character.isDigit(userBalls.charAt(i)) == false)
                 return false;
         }
 
         return true;
     }
 
-    public boolean isNotZero(String inputStr) {
-        if (inputStr.contains("0") == true)
+    public boolean isNotZero(String userBalls) {
+        if (userBalls.contains("0") == true)
             return false;
         return true;
     }
 
-    public boolean isDifferNumber(String inputStr) {
-        if ( inputStr.charAt(0) == inputStr.charAt(1) ||
-                inputStr.charAt(1) == inputStr.charAt(2) ||
-                inputStr.charAt(2) == inputStr.charAt(0))
+    public boolean isDifferNumber(String userBalls) {
+        if ( userBalls.charAt(0) == userBalls.charAt(1) ||
+                userBalls.charAt(1) == userBalls.charAt(2) ||
+                userBalls.charAt(2) == userBalls.charAt(0))
             return false;
 
         return true;

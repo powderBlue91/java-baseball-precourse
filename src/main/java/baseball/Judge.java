@@ -17,10 +17,6 @@ public class Judge {
     static BaseballCounter baseballCounter = new BaseballCounter();
 
     static public JudgeState execute(String computerBalls, String userBalls) {
-
-        if (userBalls.equals("[ERROR]"))
-            return JudgeState.INPUT_ERROR;
-
         return judgeBaseBall(baseballCounter.countStrike(computerBalls, userBalls),
                 baseballCounter.countBall(computerBalls, userBalls));
     }
