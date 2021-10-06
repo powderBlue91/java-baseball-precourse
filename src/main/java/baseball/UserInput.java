@@ -3,35 +3,35 @@ package baseball;
 import nextstep.utils.Console;
 
 public class UserInput {
-    int inputLen;
+    int ballLength;
 
     public UserInput(int inputLen) {
-        this.inputLen = inputLen;
+        this.ballLength = inputLen;
     };
 
     public String execute() {
-        String inputStr = Console.readLine();
+        String userBalls = Console.readLine();
 
-        if (validateStr(inputStr) == false)
+        if (validate(userBalls) == false)
             return "[ERROR]";
 
-        return inputStr;
+        return userBalls;
     }
 
-    public boolean validateStr(String inputStr) {
-        if (isNotEmpty(inputStr) == false)
+    public boolean validate(String userBalls) {
+        if (isNotEmpty(userBalls) == false)
             return false;
 
-        if (checkLength(inputStr) == false)
+        if (checkLength(userBalls) == false)
             return false;
 
-        if (isNumber(inputStr) == false)
+        if (isNumber(userBalls) == false)
             return false;
 
-        if (isNotZero(inputStr) == false)
+        if (isNotZero(userBalls) == false)
             return false;
 
-        if (isDifferNumber(inputStr) == false)
+        if (isDifferNumber(userBalls) == false)
             return false;
 
 
@@ -46,7 +46,7 @@ public class UserInput {
     }
 
     public boolean checkLength(String inputStr) {
-        if (inputStr.length() != inputLen)
+        if (inputStr.length() != ballLength)
             return false;
 
         return true;

@@ -2,38 +2,38 @@ package baseball;
 
 import nextstep.utils.Randoms;
 
-public class RandomNumGenerator {
+public class RandomBalls {
 
-    int randomStrLength;
+    int ballLength;
 
-    public RandomNumGenerator(int strLength) {
-        this.randomStrLength = strLength;
+    public RandomBalls(int strLength) {
+        this.ballLength = strLength;
     };
 
     public String execute() {
-        String randomStr = "";
+        String randomBalls = "";
 
         while( true ) {
-            randomStr = generateBall();
+            randomBalls = generateBall();
 
-            if (validateStr(randomStr))
+            if (validate(randomBalls))
                 break;
         }
 
-        return randomStr;
+        return randomBalls;
     }
 
     public String generateBall() {
         String tmpStr = "";
 
-        for ( int i = 0; i < randomStrLength; ++i) {
+        for ( int i = 0; i < ballLength; ++i) {
             tmpStr += Integer.toString(Randoms.pickNumberInRange(1,9));
         }
 
         return tmpStr;
     }
 
-    public boolean validateStr(String randomStr) {
+    public boolean validate(String randomStr) {
         if (isNotEmpty(randomStr) == false)
             return false;
 

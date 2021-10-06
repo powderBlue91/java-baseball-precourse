@@ -4,7 +4,7 @@ import nextstep.utils.Console;
 
 public class Game {
 
-    RandomNumGenerator randomNumGenerator = new RandomNumGenerator(3);
+    RandomBalls randomBalls = new RandomBalls(3);
     UserInput userInput = new UserInput(3);
 
     String computerBall;
@@ -14,7 +14,7 @@ public class Game {
     };
 
     public void init() {
-        computerBall = randomNumGenerator.execute();
+        computerBall = randomBalls.execute();
 //        System.out.println("답 " + computerBall);
     }
 
