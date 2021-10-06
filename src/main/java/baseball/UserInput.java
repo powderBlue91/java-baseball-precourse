@@ -28,8 +28,12 @@ public class UserInput {
         if (isNumber(inputStr) == false)
             return false;
 
+        if (isNotZero(inputStr) == false)
+            return false;
+
         if (isDifferNumber(inputStr) == false)
             return false;
+
 
         return true;
     }
@@ -54,6 +58,12 @@ public class UserInput {
                 return false;
         }
 
+        return true;
+    }
+
+    public boolean isNotZero(String inputStr) {
+        if (inputStr.contains("0") == true)
+            return false;
         return true;
     }
 

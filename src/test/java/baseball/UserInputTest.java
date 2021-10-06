@@ -44,4 +44,13 @@ class UserInputTest {
         Assertions.assertThat(userInput.isDifferNumber("111")).isEqualTo(false);
         Assertions.assertThat(userInput.isDifferNumber("567")).isEqualTo(true);
     }
+
+    @Test
+    @DisplayName("문자열 요소중에 0이 들어있는지 확인")
+    void isNotZero() {
+        Assertions.assertThat(userInput.isNotZero("132")).isEqualTo(true);
+        Assertions.assertThat(userInput.isNotZero("307")).isEqualTo(false);
+        Assertions.assertThat(userInput.isNotZero("012")).isEqualTo(false);
+        Assertions.assertThat(userInput.isNotZero("450")).isEqualTo(false);
+    }
 }
