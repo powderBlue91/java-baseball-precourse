@@ -14,7 +14,8 @@ public class Game {
     };
 
     public void init() {
-        computerBall = randomNumGenerator.generateBall();
+        computerBall = randomNumGenerator.execute();
+//        System.out.println("답 " + computerBall);
     }
 
     public void start() {
@@ -33,13 +34,10 @@ public class Game {
             System.out.println(Judge.getStrikeNum() + "스트라이크");
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요");
-            String inputStr = Console.readLine();
-            if ( inputStr.equals("2")) {
-                System.out.println("게임 끝");
-                return false;
-            }
-            init();
-            return true;
+
+            if(endGame() == false)
+                return true;
+            return false;
         }
 
         if (judgeState == JudgeState.NOTHING) {
@@ -64,5 +62,23 @@ public class Game {
 
         System.out.println(Judge.getStrikeNum() + "스트라이크 " + Judge.getBallNum() + "볼");
         return true;
+    }
+
+    public boolean endGame() {
+        while ( true ) {
+            String inputStr = Console.readLine();
+            if ( !(inputStr.equals("1") || inputStr.equals("2")) )
+                continue;
+
+            if (inputStr.equals("2")) {
+                System.out.println("게임 끝");
+                return true;
+            }
+
+            if (inputStr.equals("1")) {
+                init();
+                return false;
+            }
+        }
     }
 }
